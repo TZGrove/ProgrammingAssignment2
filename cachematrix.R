@@ -12,12 +12,12 @@
                           m <<- NULL
   }
                   
-                  get <- function() x
-          setm_inverse<- function(m_inverse) m <<- m_inverse
-          getm_inverse <- function() m
+                  get <- function()x
+          setinverse<- function(inverse) m <<- inverse
+          getinverse <- function()m
           list(set = set, get = get,
-          setm_inverse = setm_inverse,
-          getm_inverse = getm_inverse)
+          setinverse = setinverse,
+          getinverse = getinverse)
   
 }
 
@@ -27,14 +27,14 @@
 ## it calculates the new inverse.
 
       cacheSolve <- function(x, ...) {
-          m <= x$getm_inverse()
-          if(!is.null(m_inverse)) {
+          m <- x$getinverse()
+          if(!is.null(m)) {
           message("getting cached data")
           return(m)
     }
     
-          mat <- x$get()
-          invrs <- solve(mat, ...)
-          x$setinverse(invrs)
-          invrs
+          data <- x$get()
+          m <- solve(data, ...)
+          x$setinverse(m)
+          m
   }
